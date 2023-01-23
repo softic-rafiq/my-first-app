@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { ChannelService } from '../services/channel.service';
 
+interface Book {
+  bookName: string;
+  src: string;
+  author: string;
+  amount: number;
+}
 @Component({
   selector: 'app-first',
   templateUrl: './first.component.html',
@@ -19,9 +25,22 @@ export class FirstComponent {
   isDisabled: boolean = false;
   isShowing: boolean = true;
   myName: string = '';
-  bookName = 'Clean Code';
-  src =
-    'https://m.media-amazon.com/images/I/41xShlnTZTL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg';
+
+  books: Book[] = [
+    {
+      bookName: 'clean code',
+      src: 'https://m.media-amazon.com/images/I/41xShlnTZTL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg',
+      author: 'md. rafiqul islam',
+      amount: 800,
+    },
+    {
+      bookName: ' code refactor',
+      src: 'https://m.media-amazon.com/images/I/41xShlnTZTL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg',
+      author: 'md. rabiul islam',
+      amount: 900,
+    },
+  ];
+
   fc() {
     return this.title;
   }

@@ -25,9 +25,14 @@
 
 <input type="text" [(ngModel)]="myName" />
 <p>My name is: {{ myName }}</p>
-<li *ngIf="isShowing">
-  show dynamic image
-  <img src="{{ src }}" alt="" />
-  <img [src]="src" alt="" />
-  {{ bookName }}
-</li>
+<div *ngFor="let book of books; let i = index">
+  {{ i + 1 }}
+  <li *ngIf="isShowing">
+    <!-- show dynamic image -->
+    <img src="{{ book.src }}" alt="" />
+    <!-- <img [src]="book.src" alt="" /> -->
+    {{ book.bookName | titlecase }} by {{ book.author | titlecase }}
+    <p>Price: {{ book.amount | currency : "Tk" : "\u09F3" }}</p>
+  </li>
+  <br />
+</div>
