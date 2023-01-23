@@ -16,11 +16,16 @@
 <br />
 <br />
 <!-- property binding [] -->
-<button [disabled]="isDisabled">Show Books</button>
+<button (click)="enableButton()" [disabled]="isDisabled">Show Books</button>
+<button (click)="disableButton()">Hide Books</button>
 <br />
-<li>
-  <!-- show dynamic image -->
-  <!-- <img src="{{ src }}" alt="" /> -->
+<br />
+
+<input type="text" [(ngModel)]="myName" />
+<p>My name is: {{ myName }}</p>
+<!-- <li>
+  show dynamic image
+  <img src="{{ src }}" alt="" />
   <img [src]="src" alt="" />
   {{ bookName }}
-</li>
+</li> -->
