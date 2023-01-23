@@ -5,10 +5,15 @@ import { ChildOneComponent } from './child-one/child-one.component';
 import { ChildTwoComponent } from './child-two/child-two.component';
 import { FirstComponent } from './first/first.component';
 import { SecondComponent } from './second/second.component';
+import { SignupComponent } from './signup/signup.component';
 const routes: Routes = [
   {
     path: '',
     component: FirstComponent,
+  },
+  {
+    path: 'signup',
+    component: SignupComponent,
   },
   {
     path: 'second',
