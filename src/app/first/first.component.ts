@@ -17,6 +17,7 @@ export class FirstComponent {
   items: any[] = ['Banana', 'Apple', 'Mango'];
 
   isDisabled: boolean = false;
+  isShowing: boolean = true;
   myName: string = '';
   bookName = 'Clean Code';
   src =
@@ -46,5 +47,9 @@ export class FirstComponent {
   handleInput(event: any) {
     console.log(event.target.value);
     this.myName = event.target.value;
+  }
+
+  toogleShowBooks() {
+    this.isShowing = !this.isShowing;
   }
 }

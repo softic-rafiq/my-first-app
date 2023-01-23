@@ -16,16 +16,18 @@
 <br />
 <br />
 <!-- property binding [] -->
-<button (click)="enableButton()" [disabled]="isDisabled">Show Books</button>
-<button (click)="disableButton()">Hide Books</button>
+<!-- <button (click)="enableButton()" [disabled]="isDisabled">Show Books</button> -->
+<!-- <button (click)="disableButton()">Show Books</button> -->
+<button (click)="isShowing = !isShowing">Show Books</button>
+<!-- <button (click)="toogleShowBooks()">Show Books</button> -->
 <br />
 <br />
 
 <input type="text" [(ngModel)]="myName" />
 <p>My name is: {{ myName }}</p>
-<!-- <li>
+<li *ngIf="isShowing">
   show dynamic image
   <img src="{{ src }}" alt="" />
   <img [src]="src" alt="" />
   {{ bookName }}
-</li> -->
+</li>
