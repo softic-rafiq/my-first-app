@@ -5,10 +5,22 @@
     <li *ngFor="let item of items">{{ item }}</li>
   </ul>
 </div>
-
+<!--
 <p>The summation is: {{ sum() }}</p>
-<p>This is coming from services: {{ message() }}</p>
+<p>This is coming from services: {{ message() }}</p> -->
 
 <a [routerLink]="['/second']" routerLinkActive="router-link-active"
   >Second Component</a
 >
+<br />
+<br />
+<br />
+<!-- property binding [] -->
+<button [disabled]="isDisabled">Show Books</button>
+<br />
+<li>
+  <!-- show dynamic image -->
+  <!-- <img src="{{ src }}" alt="" /> -->
+  <img [src]="src" alt="" />
+  {{ bookName }}
+</li>
