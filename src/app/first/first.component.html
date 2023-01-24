@@ -22,13 +22,11 @@
 <!-- <button (click)="toogleShowBooks()">Show Books</button> -->
 <br />
 <br />
-
+<!--
 <input type="text" [(ngModel)]="myName" />
 <p>My name is: {{ myName }}</p>
 <div class="list-books" *ngIf="isShowing">
   <li *ngFor="let book of books; let i = index">
-    <!-- {{ i + 1 }} -->
-    <!-- show dynamic image -->
     <app-book (bookEmitter)="addToCart($event)" [book]="book"></app-book>
   </li>
-</div>
+</div> -->
