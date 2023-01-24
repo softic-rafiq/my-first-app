@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BooksService } from '../services/books/books.service';
 import { ChannelService } from '../services/channel.service';
 import { Book } from '../types/types';
 
@@ -14,11 +15,6 @@ import { Book } from '../types/types';
   styleUrls: ['./first.component.css'],
 })
 export class FirstComponent {
-  constructor(private channel: ChannelService) {}
-  ngOnInit(): void {
-    this.fc();
-    this.sentDataToServices();
-  }
   title = 'This is my first Angular APP';
 
   items: any[] = ['Banana', 'Apple', 'Mango'];
@@ -27,56 +23,17 @@ export class FirstComponent {
   isShowing: boolean = true;
   myName: string = '';
   book: Book[] = [];
-  books: Book[] = [
-    {
-      bookName: 'clean code',
-      src: 'https://m.media-amazon.com/images/I/41xShlnTZTL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg',
-      author: 'md. rafiqul islam',
-      amount: 800,
-    },
-    {
-      bookName: ' code refactor',
-      src: 'https://m.media-amazon.com/images/I/41xShlnTZTL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg',
-      author: 'md. rabiul islam',
-      amount: 900,
-    },
-    {
-      bookName: 'clean code',
-      src: 'https://m.media-amazon.com/images/I/41xShlnTZTL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg',
-      author: 'md. rafiqul islam',
-      amount: 800,
-    },
-    {
-      bookName: ' code refactor',
-      src: 'https://m.media-amazon.com/images/I/41xShlnTZTL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg',
-      author: 'md. rabiul islam',
-      amount: 900,
-    },
-    {
-      bookName: 'clean code',
-      src: 'https://m.media-amazon.com/images/I/41xShlnTZTL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg',
-      author: 'md. rafiqul islam',
-      amount: 800,
-    },
-    {
-      bookName: ' code refactor',
-      src: 'https://m.media-amazon.com/images/I/41xShlnTZTL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg',
-      author: 'md. rabiul islam',
-      amount: 900,
-    },
-    {
-      bookName: 'clean code',
-      src: 'https://m.media-amazon.com/images/I/41xShlnTZTL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg',
-      author: 'md. rafiqul islam',
-      amount: 800,
-    },
-    {
-      bookName: ' code refactor',
-      src: 'https://m.media-amazon.com/images/I/41xShlnTZTL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg',
-      author: 'md. rabiul islam',
-      amount: 900,
-    },
-  ];
+  books: Book[] = [];
+
+  constructor(
+    private channel: ChannelService,
+    private bookService: BooksService
+  ) {}
+  ngOnInit(): void {
+    this.fc();
+    this.sentDataToServices();
+    this.books = this.bookService.getBooks();
+  }
 
   fc() {
     return this.title;
