@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { ChannelService } from '../services/channel.service';
+import { Book } from '../types/types';
 
-interface Book {
-  bookName: string;
-  src: string;
-  author: string;
-  amount: number;
-}
+// interface Book {
+//   bookName: string;
+//   src: string;
+//   author: string;
+//   amount: number;
+// }
 @Component({
   selector: 'app-first',
   templateUrl: './first.component.html',
@@ -25,7 +26,7 @@ export class FirstComponent {
   isDisabled: boolean = false;
   isShowing: boolean = true;
   myName: string = '';
-
+  book: Book[] = [];
   books: Book[] = [
     {
       bookName: 'clean code',
@@ -106,5 +107,9 @@ export class FirstComponent {
 
   toogleShowBooks() {
     this.isShowing = !this.isShowing;
+  }
+
+  addToCart(book: Book) {
+    console.log('Parent component', book);
   }
 }
